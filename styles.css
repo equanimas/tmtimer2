@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+:root {
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --header-color: #2c3e50;
+    --card-bg: white;
+    --border-color: #ddd;
+    --primary-color: #3498db;
+    --primary-hover: #2980b9;
+    --disabled-color: #95a5a6;
+    --shadow-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #f5f5f5;
+    --header-color: #f5f5f5;
+    --card-bg: #2d2d2d;
+    --border-color: #404040;
+    --primary-color: #2980b9;
+    --primary-hover: #3498db;
+    --disabled-color: #666;
+    --shadow-color: rgba(0,0,0,0.3);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle svg {
+    fill: var(--text-color);
+    transition: fill 0.3s;
+}
+
+.theme-toggle .moon-icon {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--header-color);
+}
+
+h2 {
+    color: var(--header-color);
+    margin: 20px 0;
+}
+
+.meeting-controls {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.speaker-form {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    margin-bottom: 20px;
+}
+
+.speakers-list {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn:disabled {
+    background-color: var(--disabled-color);
+    cursor: not-allowed;
+}
+
+input, select {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    width: calc(100% - 20px);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.duration {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: var(--text-color);
+}
+
+.speaker-card {
+    background-color: var(--bg-color);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border-left: 4px solid var(--primary-color);
+    position: relative;
+}
+
+.speaker-card h3 {
+    margin-bottom: 10px;
+}
+
+.speaker-card .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.speaker-card .time {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.speaker-card .final-time {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 14px;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    input, select {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .speaker-card .controls {
+        flex-direction: column;
+    }
+    
+    .speaker-card .controls .btn {
+        width: 100%;
+    }
+} 
