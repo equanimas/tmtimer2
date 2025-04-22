@@ -191,6 +191,14 @@ input, select {
         padding: 10px;
     }
     
+    .theme-toggle {
+        top: 60px;
+    }
+
+    h1 {
+        padding-right: 40px;
+    }
+    
     .btn {
         width: 100%;
         margin: 5px 0;
